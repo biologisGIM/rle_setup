@@ -4,7 +4,7 @@
 # It also prepares the rancher client for the deployment to be done.
 # Currently only debian and ubuntu is supported!
 # Example usage:
-# wget https://raw.githubusercontent.com/biologisGIM/rle_setup/master/RLE_installer.sh && sudo bash RLE_installer.bash
+# wget -o /tmp/RLE_installer.bash https://raw.githubusercontent.com/biologisGIM/rle_setup/master/RLE_installer.sh && sudo /bin/bash /tmp/RLE_installer.bash
 #
 
 EXTERNAL_IP=`curl -q https://reg.biologis.com/myip`
