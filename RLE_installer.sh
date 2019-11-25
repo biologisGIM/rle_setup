@@ -7,7 +7,7 @@
 # wget https://raw.githubusercontent.com/biologisGIM/rle_setup/master/RLE_installer.sh && sudo bash RLE_installer.bash
 #
 
-EXTERNAL_IP=`curl https://reg.biologis.com/myip`
+EXTERNAL_IP=`curl -q https://reg.biologis.com/myip`
 
 echo "If not already done, please provide biologis with your external IP: $EXTERNAL_IP"
 
@@ -79,4 +79,4 @@ chown -R biologis_rle:biologis_rle /mnt/biologis/
 # Install RLE deployment container
 #
 echo "Deploy docker container to be able to deploy RLE"
-docker run -e CATTLE_AGENT_IP=${EXTERNAL_IP} --rm --privileged -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/rancher:/var/lib/rancher rancher/agent:${RANCHER_AGENT_VERSION} ${RANCHER_URL}
+docker run -d -e CATTLE_AGENT_IP=${EXTERNAL_IP} --rm --privileged -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/rancher:/var/lib/rancher rancher/agent:${RANCHER_AGENT_VERSION} ${RANCHER_URL}
